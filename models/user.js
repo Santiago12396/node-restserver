@@ -13,7 +13,7 @@ const UserSchema = Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria']
+        required: [this.google === false, 'La contraseña es obligatoria']
     },
     email: {
         type: String,
@@ -26,6 +26,7 @@ const UserSchema = Schema({
     role: {
         type: String,
         required: true,
+        default: 'USER_ROLE',
         enum: ['ADMIN_ROLE', 'USER_ROLE']
     },
     status: {
